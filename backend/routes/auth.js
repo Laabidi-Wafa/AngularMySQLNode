@@ -13,21 +13,22 @@ const User = require('../models/user');
 const authController = require('../Controllers/auth');
 
 router.post(
-    '/signup', [
-        body('name').trim().notEmpty(),
-        body('email').isEmail().withMessage('Please enter a valid email. ')
-        .custom(async (email)=>{
-            const user = await User.find(email)  //waiting for a response
-            if (user[0].length > 0){ //if the email already exists
-                return Promise.reject('Email address already exist');
-                
-            }
+    '/signup',
+    [
+      body('name').trim().not().isEmpty(),
+      body('email')
+        .isEmail()
+        .withMessage('Please enter a valid email.')
+        .custom(async (email) => {
+          const user = await User.find(email);
+          if (user[0].length > 0) {
+            return Promise.reject('Email address already exist!');
+          }
         })
-        .normalizeEmail(), //uppercase, lowercase letters are acceptable
-        body('password').trim().isLength({min: 7})
-    ], authController.signup //catch the errors and cancel the operation if there's any error
-
-    
-    );
+        .normalizeEmail(),
+      body('password').trim().isLength({ min: 7 }),
+    ],
+    authController.signup
+  );
 
     module.exports = router;

@@ -1,14 +1,14 @@
 const { validationResult } = require('express-validator');
 
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+
 
 const User = require('../models/user');
 
 exports.signup = async (req, res, next) => {
   const errors = validationResult(req);
 
-  if (!errors.isEmpty()) return;
+  if (!errors.isEmpty()) return console.log(errors);
 
   const name = req.body.name;
   const email = req.body.email;
@@ -32,7 +32,7 @@ exports.signup = async (req, res, next) => {
     }
     next(err);
   }
-}
+};
 
 
 
