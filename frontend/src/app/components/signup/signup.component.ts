@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-signUpForm: FormGroup;
+  signupForm: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.signUpForm = this.createFormGroup();
-
-  
+    this.signupForm = this.createFormGroup();
   }
+  
   createFormGroup(): FormGroup{
     return new FormGroup({
       name: new FormControl("", [Validators.required, Validators.minLength(3)]),
@@ -23,9 +25,11 @@ signUpForm: FormGroup;
     })
   }
 
-
-  signUp():void {
-    console.log(this.signUpForm.value);
+  signup(): void {
+    this.authService
+    .signup(this.signupForm.value)
+    .subscribe((msg) => console.log(msg));
+    }
   }
 
 
@@ -49,5 +53,3 @@ signUpForm: FormGroup;
 
 
 
-
-}
