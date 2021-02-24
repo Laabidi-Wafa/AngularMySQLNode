@@ -1,40 +1,65 @@
-<mat-toolbar
-  color="accent"
-  style="display: flex; justify-content: space-between; padding: 0 64px;"
->
-  <span>
-    <a style="text-decoration: none; color: white;" routerLink="/"
-      ><span>La Poste Tunisienne</span></a
-    ></span
-  >
-  <span>
-    <a
+<nav>
+    <h2 class="brand">
+      <a class="logo" routerLink="/" > <br>
+        La Poste Tunisienne
+
+        <br>
+
+      </a>
+    </h2>
+
+    <ul>
+      <li>
+        <a class="link"
       routerLinkActive="active-link"
       style="text-decoration: none;"
-      routerLink="/formations"
-      ><span>Formations</span></a
-    >
-    <a
+      routerLink="/dashboard"
+      *ngIf="isAuthenticated"
+      >Dashboard
+      </a>
+         </li>
+    
+      <li>
+        <a class="link"
+        routerLinkActive="active-link"
+        style="text-decoration: none;"
+        routerLink="/formations"
+        *ngIf="isAuthenticated"
+        >
+        Formations</a>
+         </li>
+   
+      <li>
+        <a class="link"
       *ngIf="!isAuthenticated"
       routerLinkActive="active-link"
       style="text-decoration: none;"
       routerLink="/login"
-      ><span style="margin-left: 24px;">Login</span></a
-    >
-    <a
+      > Login
+      </a>
+     </li>
+    
+
+      <li>
+        <a class="link"
       *ngIf="isAuthenticated"
       (click)="logout()"
       routerLinkActive="active-link"
       style="text-decoration: none;"
       routerLink="/login"
-      ><span style="margin-left: 24px;">Logout</span></a
-    >
-    <a
-      *ngIf="!isAuthenticated"
-      routerLinkActive="active-link"
-      style="text-decoration: none;"
-      routerLink="/signup"
-      ><span style="margin-left: 24px;">Signup</span></a
-    >
-  </span>
-</mat-toolbar>
+      >
+      Logout
+      </a> </li>
+    
+
+      <li>
+        <a class="link"
+        *ngIf="!isAuthenticated"
+        routerLinkActive="active-link"
+        style="text-decoration: none;"
+        routerLink="/signup"
+        > Sign Up
+          </a> </li>
+    
+      </ul>
+</nav>

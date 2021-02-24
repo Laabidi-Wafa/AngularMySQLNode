@@ -52,7 +52,7 @@ export class AuthService {
         this.userId = tokenObject.userId;
         localStorage.setItem("token", tokenObject.token); //store the response in local storage
         this.isUserLoggedIn$.next(true);
-        this.userService.setRole(tokenObject.role=='aziz')
+        this.userService.setRole(tokenObject.role=='admin')
         console.log(tokenObject.role);
         this.router.navigate(["formations"]);
         

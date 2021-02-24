@@ -19,7 +19,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormationsComponent } from './components/formations/formations.component';
-
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { FormationsComponent } from './components/formations/formations.componen
     LoginComponent,
     FormationsComponent,
     HomeComponent,
-   
+    AdminHomeComponent,
+    Error404Component,
+  
     
   ],
   imports: [

@@ -12,14 +12,17 @@
         formControlName="password"
       />
     </mat-form-field> 
+    
+    <div class="container">
     <button
-      color="accent"
       [disabled]="!loginForm.valid"
       mat-raised-button
       type="submit"
+      class="btn btn-5"
     >
-      <span>Login</span>
+      Login
     </button>
+  </div>
     <br>
 
     <div class="uk-text-small" href="">You don't have an account ?   <a [routerLink]="['/signup']">Sign up</a></div>
