@@ -1,35 +1,40 @@
-<mat-toolbar  color="accent">
-    <span>
-      <a routerLink="/">
-        <span style="color:black">La Poste Tunisienne </span>
-      </a>
-    </span>
-    <span>
-      <a
-    
-        routerLinkActive="active-link"
-        routerLink="/formations"
-      >
-        <span><i> formations </i> </span>
-      </a>
-      <a
-        routerLinkActive="active-link"
-        routerLink="/login"
-      >
-        <span><i> Login </i></span>
-      </a>
-      <a
-
-        routerLinkActive="active-link"
-        routerLink="/login"
-      >
-        <span> <i> Logout </i></span>
-      </a>
-      <a
-        routerLinkActive="active-link"
-        routerLink="/signup"
-      >
-        <span><i> Signup </i></span>
-      </a>
-    </span>
-  </mat-toolbar>
+<mat-toolbar
+  color="accent"
+  style="display: flex; justify-content: space-between; padding: 0 64px;"
+>
+  <span>
+    <a style="text-decoration: none; color: white;" routerLink="/"
+      ><span>La Poste Tunisienne</span></a
+    ></span
+  >
+  <span>
+    <a
+      routerLinkActive="active-link"
+      style="text-decoration: none;"
+      routerLink="/formations"
+      ><span>Formations</span></a
+    >
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      style="text-decoration: none;"
+      routerLink="/login"
+      ><span style="margin-left: 24px;">Login</span></a
+    >
+    <a
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      routerLinkActive="active-link"
+      style="text-decoration: none;"
+      routerLink="/login"
+      ><span style="margin-left: 24px;">Logout</span></a
+    >
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      style="text-decoration: none;"
+      routerLink="/signup"
+      ><span style="margin-left: 24px;">Signup</span></a
+    >
+  </span>
+</mat-toolbar>

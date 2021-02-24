@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
  loginForm: FormGroup;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.createFormGroup();
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     .login(this.loginForm.value.email, this.loginForm.value.password) //send the email + password
     .subscribe();
   }
+
 
 
 

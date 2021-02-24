@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import {User} from "../models/User";
+import { UserService } from "../services/user.service";
 
 import { Observable, BehaviorSubject } from 'rxjs';
 import { first, tap, catchError } from 'rxjs/operators';
@@ -20,7 +21,8 @@ export class AuthService {
 
   constructor( private http: HttpClient,
     private errorHandlerService: ErrorHandlerService,
-    private router: Router) { }
+    private router: Router,
+    private userService:UserService) { }
 
 
   httpOptions: { headers: HttpHeaders } = {
@@ -38,27 +40,34 @@ export class AuthService {
 
   login(email: Pick<User, "email">,password: Pick<User, "password">): Observable<{
     token: string;
-    userId:  Pick<User, "id">
+    userId:  Pick<User, "id">;
+    role: string;
      }> 
      { //will pick from the user the email and the password
     return this.http
     .post(`${this.url}/login`, { email, password }, this.httpOptions)  //sending the email and the password
     .pipe(
       first(),
-      tap((tokenObject: {token: string; userId: Pick<User, "id">})=>{
+      tap((tokenObject: {token: string; userId: Pick<User, "id">,role:string})=>{
         this.userId = tokenObject.userId;
         localStorage.setItem("token", tokenObject.token); //store the response in local storage
         this.isUserLoggedIn$.next(true);
+        this.userService.setRole(tokenObject.role=='aziz')
+        console.log(tokenObject.role);
         this.router.navigate(["formations"]);
+        
       }),
       catchError(
         this.errorHandlerService.handleError<{
           token: string;
           userId: Pick<User, "id">;
+          role:string;
         }>("login"))
       );
   }
 
-
+  loggedIn() {
+    return !!localStorage.getItem('token')    
+  }
 
 }

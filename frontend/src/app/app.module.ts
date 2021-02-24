@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormationsComponent } from './components/formations/formations.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { FormationsComponent } from './components/formations/formations.componen
     LoginComponent,
     FormationsComponent,
     HomeComponent,
+   
     
   ],
   imports: [

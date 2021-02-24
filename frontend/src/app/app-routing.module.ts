@@ -5,11 +5,13 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormationsComponent } from './components/formations/formations.component';
+import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "formations", component: FormationsComponent },
-  { path: "login", component: LoginComponent },
+  { path: "", component: LoginComponent },
+  { path: "formations",  canActivate: [AdminGuard], component: FormationsComponent },
+  { path: "login", component: LoginComponent},
   { path: "signup", component: SignupComponent },
   { path: "**", redirectTo: "" },
 ];

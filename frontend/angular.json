@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "formations"
+  "defaultProject": "formations",
+  "cli": {
+    "analytics": "41f53d37-3285-422f-9a7c-57dccce2a9f2"
+  }
 }
