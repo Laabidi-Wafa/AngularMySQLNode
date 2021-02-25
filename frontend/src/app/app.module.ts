@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http'
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule,FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormationsComponent } from './components/formations/formations.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { Error404Component } from './components/error404/error404.component';
+import { SurveyComponent } from './components/survey/survey.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Error404Component } from './components/error404/error404.component';
     HomeComponent,
     AdminHomeComponent,
     Error404Component,
+    SurveyComponent,
   
     
   ],
@@ -47,6 +49,7 @@ import { Error404Component } from './components/error404/error404.component';
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   
     
   ],
