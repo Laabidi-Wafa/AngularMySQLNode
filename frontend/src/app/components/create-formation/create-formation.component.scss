@@ -1,3 +1,11 @@
+mat-form-field,
+button {
+  width: 100%;
+}
+button {
+  margin-bottom: 2em;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -220,24 +228,4 @@ btn:hover {
     #fcb69f 51%,
     #ffecd2 100%
   );
-}
-
-mat-card {
-  margin-bottom: 1em;
-  font-size: 24px;
-  button {
-    float: right;
-  }
-  .formation-name {
-    font-weight: bold;
-  }
-  .formation-place {
-    margin-top: 1em;
-  }
-  .date-of-starting {
-    margin-top: 1em;
-  }
-  .date-of-ending {
-    margin-top: 1em;
-  }
 }

@@ -22,6 +22,7 @@ import { FormationsComponent } from './components/formations/formations.componen
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { Error404Component } from './components/error404/error404.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { CreateFormationComponent } from './components/create-formation/create-formation.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SurveyComponent } from './components/survey/survey.component';
     AdminHomeComponent,
     Error404Component,
     SurveyComponent,
+    CreateFormationComponent,
   
     
   ],
@@ -49,7 +51,7 @@ import { SurveyComponent } from './components/survey/survey.component';
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   
     
   ],
