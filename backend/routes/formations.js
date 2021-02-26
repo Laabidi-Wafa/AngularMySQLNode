@@ -1,35 +1,27 @@
+const express = require("express");
 
-const express = require('express');
-
-const { body } = require('express-validator');
+const { body } = require("express-validator");
 
 const router = express.Router();
 
-const formationsController = require('../Controllers/formations');
+const formationsController = require("../Controllers/formations");
 
-router.get('/', formationsController.fetchAll);
+const auth = require("../middleware/auth");
 
-router.post('/formation',
-[
-    body('titre').trim().isLength({min:5}).not().isEmpty(),
-    body('lieu').trim().isLength({min:5}).not().isEmpty(),
-    body('dateDeb').trim().not().isEmpty(),
-    body('dateFin').trim().not().isEmpty(),
-],
-formationsController.postFormation );
+router.get("/", auth, formationsController.fetchAll);
 
+router.post(
+  "/formation",
+  auth,
+  [
+    body("titre").trim().isLength({ min: 5 }).not().isEmpty(),
+    body("lieu").trim().isLength({ min: 5 }).not().isEmpty(),
+    body("dateDeb").trim().not().isEmpty(),
+    body("dateFin").trim().not().isEmpty(),
+  ],
+  formationsController.postFormation
+);
 
+router.delete("/:id", auth, formationsController.deleteFormation);
 
-router.delete('/:id',formationsController.deleteFormation );
-
-
-
-
-
-
-
-
-
-
-
-    module.exports = router;
+module.exports = router;
