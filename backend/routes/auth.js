@@ -12,9 +12,12 @@ const User = require('../models/user');
 
 const authController = require('../Controllers/auth');
 
+
+
+//signUp
 router.post(
     '/signup',
-    [
+    [ //Control
       body('name').trim().not().isEmpty(),
       body('email')
         .isEmail()
@@ -31,6 +34,8 @@ router.post(
     authController.signup
   );
 
+
+  //login
   router.post('/login', authController.login);
 
 
