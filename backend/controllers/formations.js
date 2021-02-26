@@ -54,7 +54,7 @@ exports.postFormation = async (req, res, next) => {
 
 exports.deleteFormation = async (req, res, next) => {
     try{
-        const deleteResponse = await Formations.delete(res.param.id); //we are deleting the formation that has that certain id
+        const deleteResponse = await Formations.delete(req.params.id); //we are deleting the formation that has that certain id
         res.status(200).json(deleteResponse);
 
     }
