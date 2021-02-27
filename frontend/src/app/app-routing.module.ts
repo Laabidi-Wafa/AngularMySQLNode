@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,20 +12,26 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { Error404Component } from './components/error404/error404.component';
 import { SurveyComponent } from './components/survey/survey.component';
 
-
-
 const routes: Routes = [
-  { path: "", component: LoginComponent },
-  { path: "formations",  canActivate: [AuthGuard], component: FormationsComponent },
-  { path: "login", component: LoginComponent},
-  { path: "survey", component: SurveyComponent},
-  { path: "dashboard", canActivate: [AdminGuard],component: AdminHomeComponent},
-  { path: "signup", component: SignupComponent },
-  { path: "**", component: Error404Component },
+  { path: '', component: LoginComponent },
+  {
+    path: 'formations',
+    canActivate: [AuthGuard],
+    component: FormationsComponent,
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'survey', component: SurveyComponent },
+  {
+    path: 'dashboard',
+    canActivate: [AdminGuard],
+    component: AdminHomeComponent,
+  },
+  { path: 'signup', component: SignupComponent },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,18 +1,18 @@
-<mat-card>
+<mat-card *ngFor="let formation of formations$ | async">
   <button mat-icon-button>
-      <mat-icon  color="warn">delete</mat-icon>
+      <mat-icon (click)="delete(formation.id)" color="warn">delete</mat-icon>
     </button>
   <div class="formation-name">
-     Titre du formation
+     {{formation.titre}}
   </div>
   <div class="formation-place">
-     Lieu du formation
+   {{formation.lieu}}
   </div>
   <div class="date-of-starting">
-   Date de début du formation
+    {{formation.DateDeb}}
    </div>
    <div class="date-of-ending">
-      Date de fin du formation
+    {{formation.DateFin}}
       </div>
   </mat-card>
   

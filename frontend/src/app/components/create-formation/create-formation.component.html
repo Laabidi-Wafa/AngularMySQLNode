@@ -1,5 +1,5 @@
-<h1>Ajouter une formation</h1>
-<form [formGroup]="formationForm" #formDirective="ngForm" (ngSubmit)="onSubmit()" novalidate>
+<h1>Ajouter une nouvelle formation</h1>
+<form [formGroup]="formationForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formationForm.value)" novalidate>
     <mat-form-field>
       <mat-label>Titre du formation</mat-label>
       <input matInput placeholder="Ex. Oracle" formControlName="titre" type="text"/>
@@ -19,7 +19,7 @@
         <mat-label>Date de début du formation</mat-label>
         <input
           matInput
-          type="Date"
+          type="date"
           formControlName="DateDeb"
         />
       </mat-form-field> 
@@ -28,7 +28,7 @@
         <mat-label>Date de fin du formation</mat-label>
         <input
           matInput
-          type="Date"
+          type="date"
           formControlName="DateFin"
         />
       </mat-form-field> 
@@ -40,7 +40,7 @@
       type="submit"
       class="btn btn-5"
     >
-      Créer une nouvelle formation
+     Ajouter une formation
     </button>
   </div>
     <br>
