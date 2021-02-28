@@ -11,7 +11,7 @@ const auth = require("../middleware/auth");
 router.get("/", auth, formationsController.fetchAll);
 
 router.post(
-  "/formation",
+  "/",
   auth,
   [
     body("titre").trim().isLength({ min: 5 }).not().isEmpty(),

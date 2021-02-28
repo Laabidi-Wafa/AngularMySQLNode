@@ -40,13 +40,13 @@ export class CreateFormationComponent implements OnInit {
         Validators.minLength(5),
       ]),
       lieu: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      DateDeb: new FormControl('', [Validators.required]),
-      DateFin: new FormControl('', [Validators.required]),
+      dateDeb: new FormControl('', [Validators.required]),
+      dateFin: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit(
-    formData: Pick<Formation, 'titre' | 'lieu' | 'DateDeb' | 'DateFin'>
+    formData: Pick<Formation, 'titre' & 'lieu' & 'dateDeb' & 'dateFin'>
   ) {
     this.formationService
       .createFormation(formData)

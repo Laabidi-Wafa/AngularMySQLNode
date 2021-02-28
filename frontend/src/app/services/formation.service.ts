@@ -41,8 +41,8 @@ export class FormationService {
         {
           titre: formData.titre,
           lieu: formData.lieu,
-          DateDeb: formData.DateDeb,
-          DateFin: formData.DateFin,
+          dateDeb: formData.dateDeb,
+          dateFin: formData.dateFin,
         },
         this.httpOptions
       )
