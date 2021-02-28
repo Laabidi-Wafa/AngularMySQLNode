@@ -13,6 +13,7 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./formations.component.scss'],
 })
 export class FormationsComponent implements OnInit {
+  datePipeString: string;
   formations$: Observable<Formation[]>;
   userId: Pick<User, 'id'>;
   constructor(

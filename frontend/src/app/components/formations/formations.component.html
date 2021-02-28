@@ -1,31 +1,29 @@
 <mat-card *ngFor="let formation of formations$ | async">
   <button mat-icon-button>
-      <mat-icon (click)="delete(formation.id)" color="warn">delete</mat-icon>
-    </button>
+    <mat-icon (click)="delete(formation.id)" color="warn">delete</mat-icon>
+  </button>
   <div class="formation-name">
-     {{formation.titre}}
+    {{ formation.titre }}
   </div>
   <div class="formation-place">
-   {{formation.lieu}}
+    Lieu de la formation :
+    {{ formation.lieu }}
   </div>
   <div class="date-of-starting">
-    {{formation.DateDeb}}
-   </div>
-   <div class="date-of-ending">
-    {{formation.DateFin}}
-      </div>
-  </mat-card>
-  
- <h1>Give-us your feedback </h1>
-        <div class="item">
-          <div class="container">
-            <a
-            [routerLink]="['/survey']"
-              mat-raised-button
-              class="btn btn-5"
-            >
-              FeedBack
-            </a>
-          </div>
-          
+    Date et heure de début de la formation :
+    {{ formation.dateDeb | date: "dd/MM/yyyy hh:mm" }}
   </div>
+  <div class="date-of-ending">
+    Date et heure de fin de la formation :
+    {{ formation.dateFin | date: "dd/MM/yyyy hh:mm" }}
+  </div>
+</mat-card>
+
+<h1>Give-us your feedback</h1>
+<div class="item">
+  <div class="container">
+    <a [routerLink]="['/survey']" mat-raised-button class="btn btn-5">
+      FeedBack
+    </a>
+  </div>
+</div>

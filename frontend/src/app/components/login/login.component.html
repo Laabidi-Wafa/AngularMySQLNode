@@ -1,19 +1,19 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Ex. Ali@gmail.com" formControlName="email" />
-    </mat-form-field>  
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input
-        matInput
-        type="password"
-        placeholder="Ex. Ali123"
-        formControlName="password"
-      />
-    </mat-form-field> 
-    
-    <div class="container">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Ex. Ali@gmail.com" formControlName="email" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      placeholder="Ex. Ali123"
+      formControlName="password"
+    />
+  </mat-form-field>
+
+  <div class="container">
     <button
       [disabled]="!loginForm.valid"
       mat-raised-button
@@ -23,8 +23,9 @@
       Login
     </button>
   </div>
-    <br>
+  <br />
 
-    <div class="uk-text-small" href="">You don't have an account ?   <a [routerLink]="['/signup']">Sign up</a></div>
- 
-  </form>
+  <div class="uk-text-small" href="">
+    You don't have an account ? <a [routerLink]="['/signup']">Sign up</a>
+  </div>
+</form>
