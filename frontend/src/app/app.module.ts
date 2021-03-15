@@ -24,6 +24,7 @@ import { Error404Component } from './components/error404/error404.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { CreateFormationComponent } from './components/create-formation/create-formation.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { DetailsFormationsComponent } from './components/details-formations/details-formations.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     Error404Component,
     SurveyComponent,
     CreateFormationComponent,
+    DetailsFormationsComponent,
   ],
   imports: [
     BrowserModule,

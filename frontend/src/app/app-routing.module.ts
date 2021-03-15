@@ -11,6 +11,7 @@ import { AdminGuard } from './admin.guard';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { Error404Component } from './components/error404/error404.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { DetailsFormationsComponent } from './components/details-formations/details-formations.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,13 +21,14 @@ const routes: Routes = [
     component: FormationsComponent,
   },
   { path: 'login', component: LoginComponent },
-  { path: 'survey', component: SurveyComponent },
+  { path: 'evaluation', component: SurveyComponent },
   {
     path: 'dashboard',
     canActivate: [AdminGuard],
     component: AdminHomeComponent,
   },
   { path: 'signup', component: SignupComponent },
+  { path: 'details/:id', component: DetailsFormationsComponent },
   { path: '**', component: Error404Component },
 ];
 

@@ -8,55 +8,10 @@
 <div class="container">
   <form
     id="survey-form"
-    [formGroup]="surveyForm"
-    (ngSubmit)="submit()"
+    [formGroup]="evaluationForm"
+    (ngSubmit)="onSubmit(evaluationForm.value)"
     novalidate
   >
-    <div class="labels">
-      <label id="name-label" for="name">* Nom et Prenom</label>
-    </div>
-    <div class="input-tab">
-      <input
-        class="input-field"
-        type="text"
-        id="name"
-        name="name"
-        formControlName="name"
-        placeholder="Enterez votre nom"
-        autofocus
-      />
-    </div>
-
-    <div class="labels">
-      <label id="email-label" for="email">* Email</label>
-    </div>
-    <div class="input-tab">
-      <input
-        class="input-field"
-        type="email"
-        id="email"
-        name="email"
-        formControlName="email"
-        placeholder="email@email.com"
-      />
-    </div>
-
-    <div class="labels">
-      <label id="number-label" for="number">* Age</label>
-    </div>
-    <div class="input-tab">
-      <input
-        class="input-field"
-        type="number"
-        id="number"
-        name="number"
-        min="1"
-        max="120"
-        formControlName="age"
-        placeholder="20"
-      />
-    </div>
-
     <div class="labels">
       <label for="dropdown"></label>
     </div>
@@ -66,9 +21,15 @@
       <label>La formation vous aide-t-elle à atteindre vos objectifs ?</label>
     </div>
     <div class="input-tab">
-      <input type="radio" name="radio-button" value="love" />Oui<br />
-      <input type="radio" name="radio-button" value="like" />Partiellement<br />
-      <input type="radio" name="radio-button" value="ok" />Non<br />
+      <textarea
+        formControlName="objectif"
+        class="input-field"
+        id="objectif"
+        name="comments"
+        rows="3"
+        cols="5"
+        placeholder="Vos commentaires..."
+      ></textarea>
     </div>
 
     <div class="labels">
@@ -77,21 +38,30 @@
       </label>
     </div>
     <div class="input-tab">
-      <select id="dropdown" name="seasons">
-        <option disabled value selected>Prière de choisir une option</option>
-        <option value="<=5">0-5</option>
-        <option value="<=10">6-10</option>
-        <option value="<=15">10-15</option>
-        <option value="<=21">15-20</option>
-      </select>
+      <textarea
+        formControlName="note"
+        class="input-field"
+        id="note"
+        name="comments"
+        rows="1"
+        cols="2"
+        placeholder="Vos commentaires..."
+      ></textarea>
     </div>
 
     <div class="labels">
       <label>Preferez-vous cette formation en ligne ou présentielle?</label>
     </div>
     <div class="input-tab">
-      <input type="checkbox" name="alone" value="alone" />En ligne<br />
-      <input type="checkbox" name="friends" value="fr" />Présentielle<br />
+      <textarea
+        formControlName="enligne"
+        class="input-field"
+        id="enligne"
+        name="comments"
+        rows="1"
+        cols="10"
+        placeholder="Vos commentaires..."
+      ></textarea>
     </div>
 
     <div class="labels">
@@ -102,8 +72,9 @@
     </div>
     <div class="input-tab">
       <textarea
+        formControlName="fonctionnalite"
         class="input-field"
-        id="comments"
+        id="fonctionnalite"
         name="comments"
         rows="10"
         cols="40"
@@ -112,7 +83,7 @@
     </div>
 
     <div class="btn">
-      <button id="submit" [disabled]="!surveyForm.valid" type="submit">
+      <button id="submit" [disabled]="!evaluationForm.valid" type="submit">
         Envoyer
       </button>
     </div>

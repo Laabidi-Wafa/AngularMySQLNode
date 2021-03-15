@@ -5,6 +5,7 @@ const app = express();
 const authRoutes = require("./Routes/auth");
 const formationRoute = require("./Routes/formations");
 const errorController = require("./Controllers/error");
+const evaluationRoute = require("./routes/evaluations");
 
 const ports = process.env.port || 3000;
 
@@ -21,6 +22,8 @@ app.use((req, res, next) => {
 app.use("/auth", authRoutes); //authentication route
 
 app.use("/formations", formationRoute); //formations route
+
+app.use("/evaluation", evaluationRoute); //formations route
 
 app.use(errorController.get404);
 
