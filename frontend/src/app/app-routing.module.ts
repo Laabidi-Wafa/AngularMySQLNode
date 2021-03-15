@@ -12,7 +12,7 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { Error404Component } from './components/error404/error404.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { DetailsFormationsComponent } from './components/details-formations/details-formations.component';
-
+import { FeedbackComponent } from './components/feedback/feedback.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
@@ -28,7 +28,7 @@ const routes: Routes = [
     component: AdminHomeComponent,
   },
   { path: 'signup', component: SignupComponent },
-  { path: 'details/:id', component: DetailsFormationsComponent },
+  { path: 'feedback', component: FeedbackComponent },
   { path: '**', component: Error404Component },
 ];
 

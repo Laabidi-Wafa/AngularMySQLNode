@@ -25,6 +25,7 @@ import { SurveyComponent } from './components/survey/survey.component';
 import { CreateFormationComponent } from './components/create-formation/create-formation.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { DetailsFormationsComponent } from './components/details-formations/details-formations.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { DetailsFormationsComponent } from './components/details-formations/deta
     SurveyComponent,
     CreateFormationComponent,
     DetailsFormationsComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
